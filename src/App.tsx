@@ -8,28 +8,28 @@ import { LaptopMinimalCheck } from 'lucide-react';
 const alertData=[
   {
     id:crypto.randomUUID() , 
-    type:"defaultAlert" , 
+    type:"defaultAlert" as const , 
     title:"Alert title1" , 
-    description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis ut alias aut?" , 
+    
     icon:<BellRing /> 
   } , 
   {
     id:crypto.randomUUID() , 
-    type:"infoAlert" , 
+    type:"infoAlert"  as const, 
     title:"Alert title2" , 
     description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis ut alias aut?" , 
     icon:<BookCopy /> 
   } , 
   {
     id:crypto.randomUUID() , 
-    type:"warningAlert" , 
+    type:"warningAlert"  as const, 
     title:"Alert title3" , 
     description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis ut alias aut?" , 
     icon:<CircleAlert /> 
   } , 
   {
     id:crypto.randomUUID() , 
-    type:"errorAlert" , 
+    type:"errorAlert"  as const, 
     title:"Alert title4" , 
     description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis ut alias aut?" , 
     icon:<Ban /> 
@@ -37,7 +37,7 @@ const alertData=[
  
   {
     id:crypto.randomUUID() , 
-    type:"successAlert" , 
+    type:"successAlert" as const , 
     title:"Alert title5" , 
     description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis ut alias aut?" , 
     icon:<LaptopMinimalCheck /> 
@@ -49,7 +49,11 @@ const App = () => {
       {
         alertData.map((alertItem)=>{
           return(
-            <Alert key={alertItem.id} alertItem={alertItem} /> 
+            <Alert key={alertItem.id} alertItem={alertItem} >
+             <div>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque quis adipisci consequuntur officia numquam voluptatibus amet perferendis <a href=""> ut alias aut?</a>
+    </div>
+            </Alert> 
           )
         })
       }
